@@ -244,6 +244,15 @@
         <span class="dplayer-info-panel-item-data"></span>
     </div>
     {{ /if }}
+    <div class="dplayer-info-panel-item dplayer-info-panel-item-player">
+        <div class="dplayer-info-panel-icon">
+          <img class="dplayer-info-panel-avatar" src="{{ playericon }}">
+        </div>
+        <div class="dplayer-info-panel-extra">
+          <a target="_blank" href="https://github.com/DIYgod/DPlayer">DPlayer</a>
+          <a target="_blank" href="https://diygod.me">Diygod</a>
+        </div>
+    </div>
 </div>
 <div class="dplayer-menu dplayer-menu-hide"></div>
 <div class="dplayer-notice"></div>

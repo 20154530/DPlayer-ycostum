@@ -32,7 +32,7 @@
 }
 .dplayer-menu {
     position: absolute;
-    width: 170px;
+    width: 196px;
     border-radius: 2px;
     background: rgba(28, 28, 28, 0.85);
     padding: 5px 0;
@@ -64,7 +64,8 @@
         a {
             text-decoration: none;
             display: inline-block;
-            padding: 0 10px;
+            text-align: left;
+            padding: 0 20px;
             line-height: 30px;
             color: #eee;
             font-size: 13px;
@@ -74,9 +75,9 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
-            transform-origin: 0.5 0.5;
+            transform-origin: 0 0.5;
             &:hover {
-                transform: scale(1.1, 1.1);
+                transform: scale(1.05, 1.05);
             }
         }
     }

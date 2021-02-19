@@ -50,12 +50,10 @@ export default (options) => {
 
     options.contextmenu = options.contextmenu.concat([
         {
-            text: 'About author',
-            link: 'https://diygod.me',
-        },
-        {
-            text: `DPlayer v${DPLAYER_VERSION}`,
-            link: 'https://github.com/MoePlayer/DPlayer',
+            text: `关于`,
+            click: (player) => {
+                player.infoPanel.triggle();
+            },
         },
     ]);
 

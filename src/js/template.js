@@ -2,6 +2,8 @@ import Icons from './icons';
 import tplPlayer from '../template/player.art';
 import tplContextMenu from '../template/contextmenu.art';
 import utils from './utils';
+import icon from '../assets/icon.png';
+
 
 class Template {
     constructor(options) {
@@ -19,6 +21,7 @@ class Template {
             tran: this.tran,
             icons: Icons,
             mobile: utils.isMobile,
+            playericon:icon,
             video: {
                 current: true,
                 pic: this.options.video.pic,
@@ -95,6 +98,7 @@ class Template {
         this.infoUrl = this.container.querySelector('.dplayer-info-panel-item-url .dplayer-info-panel-item-data');
         this.infoResolution = this.container.querySelector('.dplayer-info-panel-item-resolution .dplayer-info-panel-item-data');
         this.infoDuration = this.container.querySelector('.dplayer-info-panel-item-duration .dplayer-info-panel-item-data');
+        this.infoAbout = this.container.querySelector('.dplayer-info-panel-item-player');
         this.infoDanmakuId = this.container.querySelector('.dplayer-info-panel-item-danmaku-id .dplayer-info-panel-item-data');
         this.infoDanmakuApi = this.container.querySelector('.dplayer-info-panel-item-danmaku-api .dplayer-info-panel-item-data');
         this.infoDanmakuAmount = this.container.querySelector('.dplayer-info-panel-item-danmaku-amount .dplayer-info-panel-item-data');
