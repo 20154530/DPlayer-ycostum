@@ -32,7 +32,6 @@ class ContextMenu {
 
     show(x, y) {
         this.player.template.menu.classList.add('dplayer-menu-show');
-
         const clientRect = this.player.container.getBoundingClientRect();
         if (x + this.player.template.menu.offsetWidth >= clientRect.width) {
             this.player.template.menu.style.right = clientRect.width - x + 'px';
@@ -57,6 +56,7 @@ class ContextMenu {
 
     hide() {
         this.player.template.mask.classList.remove('dplayer-mask-show');
+        this.player.template.menu.classList.remove('dplayer-menu-hide');
         this.player.template.menu.classList.remove('dplayer-menu-show');
 
         this.shown = false;

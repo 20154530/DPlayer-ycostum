@@ -1,5 +1,6 @@
 import Icons from './icons';
 import tplPlayer from '../template/player.art';
+import tplContextMenu from '../template/contextmenu.art';
 import utils from './utils';
 
 class Template {
@@ -76,7 +77,6 @@ class Template {
         this.browserFullButton = this.container.querySelector('.dplayer-full-icon');
         this.webFullButton = this.container.querySelector('.dplayer-full-in-icon');
         this.menu = this.container.querySelector('.dplayer-menu');
-        this.menuItem = this.container.querySelectorAll('.dplayer-menu-item');
         this.qualityList = this.container.querySelector('.dplayer-quality-list');
         this.camareButton = this.container.querySelector('.dplayer-camera-icon');
         this.airplayButton = this.container.querySelector('.dplayer-airplay-icon');
@@ -98,6 +98,12 @@ class Template {
         this.infoDanmakuId = this.container.querySelector('.dplayer-info-panel-item-danmaku-id .dplayer-info-panel-item-data');
         this.infoDanmakuApi = this.container.querySelector('.dplayer-info-panel-item-danmaku-api .dplayer-info-panel-item-data');
         this.infoDanmakuAmount = this.container.querySelector('.dplayer-info-panel-item-danmaku-amount .dplayer-info-panel-item-data');
+
+        this.menu.innerHTML = tplContextMenu({
+            tran: this.tran,
+            contextmenu: this.options.contextmenu,
+        });
+        this.menuItem = this.container.querySelectorAll('.dplayer-menu-item');
     }
 }
 

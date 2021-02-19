@@ -1,0 +1,5 @@
+{{ each contextmenu }}
+    <div class="dplayer-menu-item">
+        <a{{ if $value.link }} target="_blank"{{ /if }} href="{{ $value.link || 'javascript:void(0);' }}">{{ tran($value.text) }}</a>
+    </div>
+{{ /each }}

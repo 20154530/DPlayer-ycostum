@@ -1,3 +1,35 @@
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(fadein) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeout) {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 .dplayer-menu {
     position: absolute;
     width: 170px;
@@ -6,33 +38,47 @@
     padding: 5px 0;
     overflow: hidden;
     z-index: 3;
-    display: none;
+    opacity: 0;
+    animation: fadeout 0.24s ease-in normal forwards;
+    -webkit-animation: fadeout 0.24s ease-in normal forwards;
+    -moz-animation: fadeout 0.24s ease-in normal forwards;
+
+    &.dplayer-menu-hide{
+        display: none;
+    }
+
     &.dplayer-menu-show {
         display: block;
+        animation: fadein 0.24s ease-in normal forwards;
+        -webkit-animation: fadein 0.24s ease-in normal forwards;
+        -moz-animation: fadein 0.24s ease-in normal forwards;
     }
+
     .dplayer-menu-item {
         height: 30px;
         box-sizing: border-box;
         cursor: pointer;
         &:hover {
-            background-color: rgba(255, 255, 255, .1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
         a {
+            text-decoration: none;
             display: inline-block;
             padding: 0 10px;
             line-height: 30px;
             color: #eee;
             font-size: 13px;
-            display: inline-block;
             vertical-align: middle;
             width: 100%;
             box-sizing: border-box;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
+            transform-origin: 0.5 0.5;
             &:hover {
-                text-decoration: none;
+                transform: scale(1.1, 1.1);
             }
         }
     }
 }
+

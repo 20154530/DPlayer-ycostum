@@ -7,7 +7,7 @@ export default (options) => {
         container: options.element || document.getElementsByClassName('dplayer')[0],
         live: false,
         autoplay: false,
-        theme: '#b7daff',
+        theme: '#007acc',
         loop: false,
         lang: (navigator.language || navigator.browserLanguage).toLowerCase(),
         screenshot: false,
@@ -49,12 +49,6 @@ export default (options) => {
     }
 
     options.contextmenu = options.contextmenu.concat([
-        {
-            text: 'Video info',
-            click: (player) => {
-                player.infoPanel.triggle();
-            },
-        },
         {
             text: 'About author',
             link: 'https://diygod.me',

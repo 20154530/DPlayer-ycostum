@@ -20,6 +20,7 @@ import HotKey from './hotkey';
 import ContextMenu from './contextmenu';
 import InfoPanel from './info-panel';
 import tplVideo from '../template/video.art';
+import tplContextMenu from '../template/contextmenu.art';
 
 let index = 0;
 const instances = [];
@@ -63,6 +64,31 @@ class DPlayer {
             options: this.options,
             index: index,
             tran: this.tran,
+        });
+
+        this.loop = this.options.loop;
+        Object.defineProperty(this, 'loop', {
+            get: () => this.setting.loop,
+            set: function (value) {
+                this.setting.loop = value;
+                this.template.loopToggle.checked = !this.template.loopToggle.checked;
+            },
+        });
+
+        this.menu = this.template.menu;
+        Object.defineProperty(this, 'menu', {
+            get: () => this.template.menu,
+            set: function (value) {
+                this.template.menu = value;
+            },
+        });
+
+        this.optionmenu = this.options.contextmenu;
+        Object.defineProperty(this, 'optionmenu', {
+            get: () => this.options.contextmenu,
+            set: function (value) {
+                this.options.contextmenu = value;
+            },
         });
 
         this.video = this.template.video;
@@ -617,6 +643,22 @@ class DPlayer {
         /* global DPLAYER_VERSION */
         return DPLAYER_VERSION;
     }
+
+    // #region Y_Theta extension
+
+    updatemenu() {
+        this.menu.innerHTML = '';
+        console.log(this.optionmenu);
+        this.menu.innerHTML = tplContextMenu({
+            tran: this.tran,
+            contextmenu: this.optionmenu,
+        });
+        this.template.menuItem = null;
+        this.template.menuItem = this.container.querySelectorAll('.dplayer-menu-item');
+        this.contextmenu = null;
+        this.contextmenu = new ContextMenu(this);
+    }
+    // #endregion
 }
 
 export default DPlayer;
