@@ -31,12 +31,12 @@ class HotKey {
                                 break;
                             case 38:
                                 event.preventDefault();
-                                percentage = player.volume() + 0.1;
+                                percentage = player.volume() + 0.01;
                                 player.volume(percentage);
                                 break;
                             case 40:
                                 event.preventDefault();
-                                percentage = player.volume() - 0.1;
+                                percentage = player.volume() - 0.01;
                                 player.volume(percentage);
                                 break;
                         }
